@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="aurora"></div>
+    <div class="stars"></div>
+    <canvas id="particles"></canvas>
+
+    <div class="contact-card">
+        <div class="halo"></div>
+        <img src="image/b742b4b4-6418-4c77-8c46-5e481c26ebea.jpg" alt="Avatar" class="avatar" />
+        <div class="name">Nguyễn Tuấn Anh</div>
+        <div class="role-wrapper">
+            <div class="role">Web Developer | Content Creator</div>
+        </div>
+
+        <div class="contact-info">
+            <div>
+                <span><img src="https://img.icons8.com/color/48/000000/zalo.png" class="icon" alt="Zalo"> Zalo:
+                    0559629469</span>
+                <button class="btn" onclick="copyZalo()">Copy</button>
+            </div>
+            <div>
+                <span><img src="https://img.icons8.com/color/48/000000/facebook.png" class="icon" alt="Facebook">
+                    Facebook</span>
+                <a class="btn" href="https://www.facebook.com/tuananhh111/" target="_blank">Mở</a>
+            </div>
+            <div>
+                <span><img src="https://img.icons8.com/color/48/000000/github.png" class="icon" alt="GitHub"> Source
+                    Code</span>
+                <a class="btn" href="https://github.com/DevCungAnh/my-contact" target="_blank">Mở</a>
+            </div>
+        </div>
+
+        <div id="copied-msg" class="copied" style="display: none;">Đã sao chép số Zalo!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
