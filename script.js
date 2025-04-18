@@ -1,14 +1,16 @@
 function copyZalo() {
-    const zaloNumber = '0559629469';
+    const zaloNumber = '0559629469'; // Số Zalo
     navigator.clipboard.writeText(zaloNumber).then(() => {
-        const msg = document.getElementById('copied-msg');
-        msg.style.display = 'block';
+        // Hiển thị thông báo khi sao chép thành công
+        const copiedMsg = document.getElementById('copied-msg');
+        copiedMsg.style.display = 'block'; // Hiển thị thông báo
         setTimeout(() => {
-            msg.style.display = 'none';
-        }, 3000); // Hiển thị thông báo trong 5 giây (5000ms)
+            copiedMsg.style.display = 'none'; // Ẩn thông báo sau 3 giây
+        }, 3000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
     });
 }
-
 
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
@@ -16,15 +18,17 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
-const numberOfParticles = 80;
+const numberOfParticles = 1000; // Tăng số lượng particles để dày hơn 
 
 class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
+        this.size = Math.random() * 4 + 1;
         this.speedX = Math.random() * 2 - 1;
         this.speedY = Math.random() * 2 - 1;
+        // Màu sắc ngẫu nhiên 
+        this.color = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.8)`;
     }
 
     update() {
@@ -34,7 +38,7 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = 'rgba(0, 255, 255, 0.8)';
+        ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -43,6 +47,7 @@ class Particle {
 
 function init() {
     particlesArray = [];
+    // Tạo particles
     for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
     }
